@@ -1,0 +1,8 @@
+<resources>
+    <string name="Spalsh_txt">توسعه یافته توسط تیم برنامه نویسی همای سعادت</string>
+    <string name="app_name">بهینه</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="label_activity_show">Show</string>
+    <string name="title_activity_abu">ABU</string>
+    <string name="title_activity_setting">Setting</string>
+</resources>
