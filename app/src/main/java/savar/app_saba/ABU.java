@@ -19,6 +19,7 @@ public class ABU extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.abu);
 
+
         txtTextView = (TextView) findViewById(R.id.txt_abu);
         txtTextView1= (TextView) findViewById(R.id.txt_abu1);
         dialNumber = (TextView) findViewById(R.id.abu_dialNumber);

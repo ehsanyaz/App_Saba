@@ -1,12 +1,16 @@
 package savar.app_saba;
 
-import android.content.Context;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Handler;
+import android.support.v4.app.NotificationCompat;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -30,7 +34,9 @@ public class Splash extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        blackBord=new BlackBord(Splash.this);
+        blackBord = new BlackBord(Splash.this);
+
+        Notification();
 
         mediaPlayer = MediaPlayer.create(getApplicationContext(), R.raw.sound);
         mediaPlayer.start();
@@ -60,5 +66,23 @@ public class Splash extends Activity {
                 finish();
             }
         }, 3900);
+    }
+
+    private void Notification(){
+        int NotiID=1000;
+        NotificationCompat.Builder builder=new NotificationCompat.Builder(this);
+        Intent intent=new Intent(this,Menu.class);
+        PendingIntent pendingIntent=PendingIntent.getActivity(this,NotiID,intent,PendingIntent.FLAG_CANCEL_CURRENT);
+        builder.setSmallIcon(R.drawable.icon);
+        builder.setContentTitle("سلام");
+        builder.setContentText("خیلی وقت بود به ما سر نزده بودی");
+        builder.setAutoCancel(true);
+        builder.setLargeIcon(BitmapFactory.decodeResource(getResources(),R.drawable.icon));
+        builder.setSubText("خوش آمدید");
+        builder.setContentIntent(pendingIntent);
+        Notification notification=builder.build();
+        NotificationManager mgr=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+        mgr.notify(NotiID,notification);
+
     }
 }
